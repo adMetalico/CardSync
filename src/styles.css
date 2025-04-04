@@ -111,7 +111,7 @@ body {
 
 .input-icon input {
     width: 100%;
-    padding: 0.8rem 1rem 0.8rem 3rem;
+    padding: 0.6rem 2rem 0.5rem 3rem;
     border: 1px solid var(--light-gray);
     border-radius: 8px;
     font-family: 'Poppins', sans-serif;
@@ -125,9 +125,8 @@ body {
 }
 
 .toggle-password {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
+    position: left;
+    top: 25%;
     transform: translateY(-50%);
     color: var(--gray-color);
     cursor: pointer;
@@ -408,6 +407,42 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--dark-color);
+}
+
+/* Mensagens de Erro */
+.error-message {
+    color: #ff3860;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+
+.input-error {
+    border-color: #ff3860 !important;
+}
+
+.input-group.error .input-icon {
+    color: #ff3860;
+}
+
+/* Estilos para erros */
+.input-group.error {
+    margin-bottom: 15px; /* Espaço para a mensagem de erro */
+}
+
+.input-group.error .input-icon {
+    color: #ff3860; /* Cor do ícone quando há erro */
+}
+
+.input-group.error input {
+    border-color: #ff3860 !important; /* Borda vermelha para o input */
+}
+
+.error-message {
+    color: #ff3860;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
 }
 
 /* Responsividade */

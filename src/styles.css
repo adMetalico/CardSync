@@ -1,0 +1,483 @@
+:root {
+    --primary-color: #4361ee;
+    --primary-dark: #3a56d4;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --success-color: #4cc9f0;
+    --warning-color: #f72585;
+    --gray-color: #adb5bd;
+    --light-gray: #e9ecef;
+    --sidebar-width: 280px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fa;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+    background-color: #f5f7fa;
+}
+
+.screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Container de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.login-box {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 450px;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-header h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    color: var(--gray-color);
+    font-size: 0.9rem;
+}
+
+.login-header i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Input groups */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--dark-color);
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-color);
+}
+
+.input-icon input {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 3rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s;
+}
+
+.input-icon input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-color);
+    cursor: pointer;
+}
+
+/* Botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+/* Links */
+.options-group {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 0 1.5rem;
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.back-to-login {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.back-to-login a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-to-login a:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: white;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.avatar {
+    font-size: 4rem;
+    color: var(--gray-color);
+    margin-bottom: 1rem;
+}
+
+.user-profile h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.user-name {
+    color: var(--gray-color);
+    font-size: 0.9rem;
+}
+
+.main-menu ul {
+    list-style: none;
+    flex-grow: 1;
+}
+
+.main-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.main-menu a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.main-menu a i {
+    width: 24px;
+    text-align: center;
+}
+
+.main-menu a:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+}
+
+.main-menu .active a {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.btn-support {
+    background-color: var(--light-gray);
+    color: var(--dark-color);
+}
+
+.btn-support:hover {
+    background-color: #e2e6ea;
+}
+
+.btn-logout {
+    background-color: white;
+    color: var(--warning-color);
+    border: 1px solid var(--warning-color);
+}
+
+.btn-logout:hover {
+    background-color: rgba(247, 37, 133, 0.1);
+}
+
+.content-area {
+    flex: 1;
+    background-color: var(--light-color);
+    padding: 1.5rem 2rem;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.content-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+}
+
+.user-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-notification {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--dark-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.btn-notification:hover {
+    background-color: var(--light-gray);
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.welcome-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+.welcome-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+.welcome-card p {
+    color: var(--gray-color);
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.bg-blue {
+    background-color: var(--primary-color);
+}
+
+.bg-green {
+    background-color: #4cc9f0;
+}
+
+.bg-orange {
+    background-color: #f8961e;
+}
+
+.stat-info h5 {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+}
+
+.stat-info p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 80px;
+        padding: 1rem 0.5rem;
+    }
+    
+    .user-profile h2, 
+    .main-menu a span {
+        display: none;
+    }
+    
+    .main-menu a {
+        justify-content: center;
+        padding: 0.8rem 0;
+    }
+    
+    .sidebar-footer button span {
+        display: none;
+    }
+    
+    .sidebar-footer button i {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+    
+    .user-profile {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .avatar {
+        font-size: 2rem;
+        margin-right: 1rem;
+        margin-bottom: 0;
+    }
+    
+    .main-menu ul {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .main-menu li {
+        margin-bottom: 0;
+    }
+    
+    .sidebar-footer {
+        flex-direction: row;
+        margin-top: 0;
+    }
+    
+    .content-area {
+        padding: 1rem;
+    }
+}

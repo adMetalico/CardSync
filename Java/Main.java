@@ -1,12 +1,12 @@
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    private HashMap<String, Usuario> usuarios;
+    private ArrayList<Usuario> usuarios;
     private Scanner scanner;
 
     public Main() {
-        usuarios = new HashMap<>();
+        usuarios = new ArrayList<>();
         scanner = new Scanner(System.in);
     }
 
@@ -48,31 +48,54 @@ public class Main {
     private void cadastrarUsuario() {
         System.out.print("Digite o nome de Usuário: ");
         String nome = scanner.nextLine();
-        if (usuarios.containsKey(nome)) {
-            System.out.println("Usuário já cadastrado!");
-            return;
+
+        // Verifica se o nome do usuário já existe
+        for (Usuario user : usuarios) {
+            if (user.getNome().equals(nome)) {
+                System.out.println("Usuário já cadastrado!");
+                return;
+            }
         }
+
         System.out.print("Digite seu Email: ");
         String email = scanner.nextLine();
-        for (Usuario user : usuarios.values()) {
+        // Verifica se o e-mail já foi cadastrado
+        for (Usuario user : usuarios) {
             if (user.getEmail().equals(email)) {
                 System.out.println("Email já cadastrado!");
                 return;
             }
         }
+
         System.out.print("Digite sua senha: ");
         String senha = scanner.nextLine();
         System.out.print("Digite novamente sua senha: ");
         String senhaB = scanner.nextLine();
-        if (senha.equals(senhaB)) {
-            Usuario novoUsuario = new Usuario();
-            usuarios.put(nome, novoUsuario);
-            System.out.println("Usuário cadastrado com sucesso!");
-        } else {
+
+        // Verifica se as senhas coincidem
+        if (!senha.equals(senhaB)) {
             System.out.println("As senhas não são iguais, tente novamente");
-            cadastrarUsuario();
+            cadastrarUsuario(); // Chama novamente caso as senhas não coincidam
+            return; // Não continua a execução após a recursão
         }
+    
+        System.out.print("Digite seu número: ");
+        Double numero = scanner.nextDouble();
+        scanner.nextLine(); // Limpa o buffer do scanner
+    
+        // Verifica se o número já foi cadastrado
+        for (Usuario user : usuarios) {
+            if (user.getNumero().equals(numero)) {
+                System.out.println("Número já cadastrado!");
+                return;
+            }
+        }
+    
+        Usuario novoUsuario = new Usuario(nome, email, senha, numero);
+        usuarios.add(novoUsuario);
+        System.out.println("Usuário cadastrado com sucesso!");
     }
+    
 
     private void loginUsuario() {
         System.out.print("Digite seu email: ");
@@ -81,7 +104,7 @@ public class Main {
         String senha = scanner.nextLine();
 
         boolean loginSucesso = false;
-        for (Usuario user : usuarios.values()) {
+        for (Usuario user : usuarios) {
             if (user.getEmail().equals(email) && user.validarSenha(senha)) {
                 System.out.println("Login bem-sucedido! Bem-vindo, " + user.getNome() + "!");
                 loginSucesso = true;
@@ -95,7 +118,22 @@ public class Main {
     }
 
     private void esqueciMinhaSenha() {
-        System.out.println("Funcionalidade ainda não implementada.");
+        System.out.println("Digite seu e-mail.");
+        String email = scanner.nextLine();
+        for(Usuario user : usuarios) {
+            if (user.getEmail().equals(email)) {
+                System.out.println("E-mail encontrado!");
+                break;
+            } else {
+                System.out.println("E-mail não encontrado!");
+                return;
+            }
+        }
+        System.out.println("Digite o código enviado ao seu email.");
+        scanner.nextInt();
+        System.out.println("Digite sua nova senha.");
+        scanner.nextLine();
+        System.out.println("Digite sua nova senha novamente.");
     }
 
     private void listarUsuarios() {
@@ -103,7 +141,7 @@ public class Main {
             System.out.println("Nenhum usuário cadastrado.");
         } else {
             System.out.println("\nUsuários Cadastrados:");
-            for (Usuario user : usuarios.values()) {
+            for (Usuario user : usuarios) {
                 System.out.println(user);
             }
         }

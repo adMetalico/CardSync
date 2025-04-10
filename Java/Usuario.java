@@ -5,11 +5,11 @@ public class Usuario {
     private Double numero;
 
     // Construtor com três parâmetros
-    public Usuario() {
+    public Usuario(String nome, String email, String senha, Double numero) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.numero = null; // Número pode ser definido posteriormente
+        this.numero = numero;
     }
 
     // Getters e Setters
@@ -50,7 +50,6 @@ public class Usuario {
         return this.senha.equals(senha);
     }
 
-    @Override
     public String toString() {
         return "\nNome: " + nome + " \nsenha: " + senha + " \nemail: " + email + " \nnumero: " + numero +"\n";
     }

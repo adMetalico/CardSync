@@ -4,7 +4,7 @@ public class Usuario {
     private String email;
     private Double numero;
 
-    // Construtor com três parâmetros
+    
     public Usuario(String nome, String email, String senha, Double numero) {
         this.nome = nome;
         this.email = email;
@@ -12,7 +12,7 @@ public class Usuario {
         this.numero = numero;
     }
 
-    // Getters e Setters
+    
     public String getNome() {
         return nome;
     }
@@ -45,7 +45,7 @@ public class Usuario {
         this.numero = numero;
     }
 
-    // Método para validar senha
+    
     public boolean validarSenha(String senha) {
         return this.senha.equals(senha);
     }

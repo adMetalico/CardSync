@@ -59,6 +59,7 @@ public class Main {
 
         System.out.print("Digite seu Email: ");
         String email = scanner.nextLine();
+
         // Verifica se o e-mail já foi cadastrado
         for (Usuario user : usuarios) {
             if (user.getEmail().equals(email)) {
@@ -75,13 +76,13 @@ public class Main {
         // Verifica se as senhas coincidem
         if (!senha.equals(senhaB)) {
             System.out.println("As senhas não são iguais, tente novamente");
-            cadastrarUsuario(); // Chama novamente caso as senhas não coincidam
-            return; // Não continua a execução após a recursão
+            cadastrarUsuario();
+            return;
         }
     
         System.out.print("Digite seu número: ");
         Double numero = scanner.nextDouble();
-        scanner.nextLine(); // Limpa o buffer do scanner
+        scanner.nextLine();
     
         // Verifica se o número já foi cadastrado
         for (Usuario user : usuarios) {
